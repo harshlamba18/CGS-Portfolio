@@ -15,6 +15,8 @@ function CameraFocusController({
   const { camera } = useThree();
   const desiredPositionRef = useRef(new THREE.Vector3());
   const desiredTargetRef = useRef(new THREE.Vector3());
+  const effectiveDesiredPositionRef = useRef(new THREE.Vector3());
+  const desiredOffsetRef = useRef(new THREE.Vector3());
 
   useFrame(() => {
     if (!controlsRef.current || !transition) {
@@ -24,17 +26,38 @@ function CameraFocusController({
     desiredPositionRef.current.set(...transition.position);
     desiredTargetRef.current.set(...transition.target);
 
-    camera.position.lerp(desiredPositionRef.current, 0.12);
+    desiredOffsetRef.current
+      .copy(desiredPositionRef.current)
+      .sub(desiredTargetRef.current);
+
+    const currentDistance = desiredOffsetRef.current.length();
+    const minDistance = controlsRef.current.minDistance ?? 0;
+    const maxDistance = controlsRef.current.maxDistance ?? Infinity;
+    const clampedDistance = THREE.MathUtils.clamp(
+      currentDistance,
+      minDistance,
+      maxDistance,
+    );
+
+    if (currentDistance > 0) {
+      desiredOffsetRef.current.setLength(clampedDistance);
+    }
+
+    effectiveDesiredPositionRef.current
+      .copy(desiredTargetRef.current)
+      .add(desiredOffsetRef.current);
+
+    camera.position.lerp(effectiveDesiredPositionRef.current, 0.12);
     controlsRef.current.target.lerp(desiredTargetRef.current, 0.14);
     controlsRef.current.update();
 
     const cameraClose =
-      camera.position.distanceTo(desiredPositionRef.current) < 0.08;
+      camera.position.distanceTo(effectiveDesiredPositionRef.current) < 0.08;
     const targetClose =
       controlsRef.current.target.distanceTo(desiredTargetRef.current) < 0.08;
 
     if (cameraClose && targetClose) {
-      camera.position.copy(desiredPositionRef.current);
+      camera.position.copy(effectiveDesiredPositionRef.current);
       controlsRef.current.target.copy(desiredTargetRef.current);
       controlsRef.current.update();
       setTransition(null);
