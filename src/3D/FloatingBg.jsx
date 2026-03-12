@@ -12,8 +12,6 @@ function pseudoRandom(seed) {
   return value - Math.floor(value);
 }
 
-/* -------- Nebula Glow -------- */
-
 function NebulaCloud({ position, color }) {
   const ref = useRef();
 
@@ -34,8 +32,6 @@ function NebulaCloud({ position, color }) {
   );
 }
 
-/* -------- Shooting Star -------- */
-
 function ShootingStar() {
   const ref = useRef();
 
@@ -53,8 +49,6 @@ function ShootingStar() {
     </mesh>
   );
 }
-
-/* -------- Distant Star Layer -------- */
 
 function DistantStars({ count = 1500 }) {
   const mesh = useRef();
@@ -99,8 +93,6 @@ function DistantStars({ count = 1500 }) {
   );
 }
 
-/* -------- Main Background -------- */
-
 export default function FloatingBg() {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
@@ -109,17 +101,14 @@ export default function FloatingBg() {
         gl={{ powerPreference: "high-performance", antialias: true }}
       >
         <PerspectiveCamera makeDefault position={[0, 0, 15]} fov={60} />
-
         <color attach="background" args={["#010206"]} />
         <fog attach="fog" args={["#010206", 15, 60]} />
 
-        {/* Lighting */}
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={2} color="#6366f1" />
         <pointLight position={[-10, -10, -5]} intensity={1.7} color="#22d3ee" />
         <pointLight position={[0, 5, -15]} intensity={1.2} color="#22d3ee" />
 
-        {/* ORIGINAL stars (unchanged) */}
         <Stars
           radius={70}
           depth={34}
@@ -130,7 +119,6 @@ export default function FloatingBg() {
           speed={0.35}
         />
 
-        {/* ORIGINAL sparkles (unchanged) */}
         <Sparkles
           count={100}
           size={2.6}
@@ -139,7 +127,6 @@ export default function FloatingBg() {
           color="#93c5fd"
         />
 
-        {/* new subtle effects */}
         <DistantStars />
 
         <NebulaCloud position={[0, 5, -20]} color="#312e81" />

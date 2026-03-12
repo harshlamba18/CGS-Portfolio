@@ -65,8 +65,6 @@ export default function EmptyRoom({
       });
     });
 
-    // Put room-floor center at local origin so app camera target [0,0,0]
-    // naturally points to the center of the room.
     const bounds = new Box3().setFromObject(cloned);
     const center = new Vector3();
     bounds.getCenter(center);
@@ -82,7 +80,6 @@ export default function EmptyRoom({
     <group position={position} rotation={rotation} scale={scale} {...props}>
       <primitive object={roomScene} />
 
-      {/* PC placement with a point light parented so it moves with PC */}
       <group
         ref={pcGroupRef1}
         name="pcGroup"
@@ -135,11 +132,9 @@ export default function EmptyRoom({
         <ambientLight intensity={5} />
       </group>
 
-      {/* Office chair placement with local light */}
       <group name="chairGroup" position={[2.5, 0.2, -3]}>
         <OfficeChair position={[0, 0, 0]} rotation={[0, Math.PI/2, 0]} scale={0.35} />
       </group>
-      {/* PC placement with a point light parented so it moves with PC */}
       <group
         ref={pcGroupRef2}
         name="pcGroup"
@@ -192,15 +187,12 @@ export default function EmptyRoom({
         <ambientLight intensity={5} />
       </group>
 
-      {/* Office chair placement with local light */}
       <group name="chairGroup" position={[2.5, 0.2, 3]}>
         <OfficeChair position={[0, 0, 0]} rotation={[0, Math.PI/2, 0]} scale={0.35} />
       </group>
-      {/* Wall model placement */}
       <group name="wallGroup" position={[-0.47, 0, 5]}>
         <Wall position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[0.6, 0.41, 0.001]} />
       </group>
-      {/* Glass wall placement */}
       <group name="glassWallGroup" position={[1.2, 0.8, 0]}>
         <GlassWall position={[0, 0, 0]} rotation={[0, 0, Math.PI/2]} scale={[0.005, 0.004, 0.03]} />
         <Headphones position={[-1, 0.2, 1.5]} rotation={[0, Math.PI, 0]} scale={2} />
@@ -210,14 +202,10 @@ export default function EmptyRoom({
         <Wall position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[0.56, 0.4, 0.1]} />
       </group>
       
-      {/* Meeting table placement */}
       <group name="meetingTableGroup" position={[0, 0, 0]}>
         <MeetingTable position={[0, 0, 0]} rotation={[0, Math.PI/2, 0]} scale={1.1} />
       </group>
 
-      
-
-      {/* Sofa placement */}
       <group name="sofaGroup" position={[-1.6, 0, 1.2]}>
         <Sofa1
           position={[-3, 0, 0.8]}
@@ -237,7 +225,6 @@ export default function EmptyRoom({
         />
       </group>
       
-      {/* Floor overlay imported from public/models/floor1 */}
       <group name="floorOverlay" position={[-0.3, 0.1, 0]}>
         <FloorOverlay position={[0, 0, 0]} rotation={[0, 0, 0]} scale={1.9} />
       </group>

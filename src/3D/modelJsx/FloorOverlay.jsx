@@ -25,7 +25,6 @@ export default function FloorOverlay({ position = [0, 0, 0], rotation = [0, 0, 0
       }
     })
 
-    // Center the overlay on its floor center
     const bounds = new Box3().setFromObject(cloned)
     const center = new Vector3()
     bounds.getCenter(center)

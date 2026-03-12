@@ -25,7 +25,6 @@ export default function OfficeChair({ position = [0, 0, 0], rotation = [0, 0, 0]
       }
     })
 
-    // Center the chair on its floor-center so position=[0,0,0] places it at origin
     const bounds = new Box3().setFromObject(cloned)
     const center = new Vector3()
     bounds.getCenter(center)

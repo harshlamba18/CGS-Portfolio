@@ -27,7 +27,6 @@ export default function ScreenLED({ position = [0, 0, 0], rotation = [0, 0, 0], 
       }
     })
 
-    // Center the model so position=[0,0,0] places it at origin
     const bounds = new Box3().setFromObject(cloned)
     const center = new Vector3()
     bounds.getCenter(center)

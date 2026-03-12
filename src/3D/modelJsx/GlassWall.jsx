@@ -24,21 +24,19 @@ export default function GlassWall({ position = [0, 0, 0], rotation = [0, 0, 0], 
           if (node.material.emissiveMap) node.material.emissiveMap.encoding = THREE.sRGBEncoding
         }
 
-        // If the material is glass-like, ensure it remains transparent and reflective
         try {
           if ('transparent' in node.material) node.material.transparent = true
           if ('opacity' in node.material && node.material.opacity === undefined) node.material.opacity = 0.9
           if ('roughness' in node.material) node.material.roughness = Math.min(1, node.material.roughness ?? 0.1)
           if ('metalness' in node.material) node.material.metalness = Math.min(1, node.material.metalness ?? 0.1)
         } catch (e) {
-          // ignore
+         
         }
 
         node.material.needsUpdate = true
       }
     })
 
-    // Center the model so position=[0,0,0] places it at origin
     const bounds = new Box3().setFromObject(cloned)
     const center = new Vector3()
     bounds.getCenter(center)

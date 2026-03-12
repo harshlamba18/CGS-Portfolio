@@ -34,7 +34,6 @@ export default function PC({
       }
     })
 
-    // Center the model on its floor-center so position=[0,0,0] places it at origin
     const bounds = new Box3().setFromObject(cloned)
     const center = new Vector3()
     bounds.getCenter(center)

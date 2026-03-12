@@ -25,18 +25,15 @@ export default function Wall({ position = [0, 0, 0], rotation = [0, 0, 0], scale
           if (node.material.emissiveMap) node.material.emissiveMap.encoding = THREE.sRGBEncoding
         }
 
-        // Apply uniform wall color; preserve texture visibility by leaving map in place.
         try {
           if (node.material.color) node.material.color.copy(WALL_COLOR)
         } catch (e) {
-          // ignore
         }
 
         node.material.needsUpdate = true
       }
     })
 
-    // Center the wall model on its floor-center so position=[0,0,0] places it at origin
     const bounds = new Box3().setFromObject(cloned)
     const center = new Vector3()
     bounds.getCenter(center)
