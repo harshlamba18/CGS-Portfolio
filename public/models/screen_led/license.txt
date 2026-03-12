@@ -1,0 +1,11 @@
+Model Information:
+* title:	Screen LED
+* source:	https://sketchfab.com/3d-models/screen-led-3586d0c9b1684fc0890c53cb0d0bf6fb
+* author:	Dimas.Achmad.Nugraha (https://sketchfab.com/Dimas.Achmad.Nugraha)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Screen LED" (https://sketchfab.com/3d-models/screen-led-3586d0c9b1684fc0890c53cb0d0bf6fb) by Dimas.Achmad.Nugraha (https://sketchfab.com/Dimas.Achmad.Nugraha) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

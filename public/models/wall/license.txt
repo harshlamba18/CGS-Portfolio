@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wall Plain
+* source:	https://sketchfab.com/3d-models/wall-plain-00f981aa92394d87a41e36d244542923
+* author:	davzza (https://sketchfab.com/davzza)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wall Plain" (https://sketchfab.com/3d-models/wall-plain-00f981aa92394d87a41e36d244542923) by davzza (https://sketchfab.com/davzza) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

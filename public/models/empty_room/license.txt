@@ -1,0 +1,11 @@
+Model Information:
+* title:	Meeting room
+* source:	https://sketchfab.com/3d-models/meeting-room-3fd65e8b05da4b9a94d287ae3f676fd1
+* author:	Titank (https://sketchfab.com/Titank_Crealis)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Meeting room" (https://sketchfab.com/3d-models/meeting-room-3fd65e8b05da4b9a94d287ae3f676fd1) by Titank (https://sketchfab.com/Titank_Crealis) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
