@@ -21,6 +21,13 @@ export default function EmptyRoom({
   rotation = [0, 0, 0],
   scale = 1,
   onFocusSpot,
+  // welcome text props
+  welcomeText = "Computer Graphics Society",
+  welcomePosition = [4.7, 3.8, 0],
+  welcomeRotation = [0, 3*Math.PI/2, 0],
+  welcomeScale = 1,
+  welcomeFontSize = 0.4,
+  welcomeColor = "#ff6ab4",
   ...props
 }) {
   const gltf = useGLTF(ROOM_MODEL_PATH);
@@ -149,6 +156,20 @@ export default function EmptyRoom({
         />
         <ambientLight intensity={5} />
       </group>
+      {/* Static 3D welcome text - configurable via props */}
+      {welcomeText && (
+        <Text
+          position={welcomePosition}
+          rotation={welcomeRotation}
+          fontSize={welcomeFontSize}
+          anchorX="center"
+          anchorY="middle"
+          scale={welcomeScale}
+        >
+          {welcomeText}
+          <meshStandardMaterial attach="material" color={welcomeColor} emissive={welcomeColor} emissiveIntensity={0.9} toneMapped={false} />
+        </Text>
+      )}
       <ScreenLED
         position={[0, 1.7, -4.7]}
         rotation={[0, 2 * Math.PI, 0]}
@@ -293,6 +314,7 @@ export default function EmptyRoom({
       <group name="floorOverlay" position={[-0.3, 0.1, 0]}>
         <FloorOverlay position={[0, 0, 0]} rotation={[0, 0, 0]} scale={1.9} />
       </group>
+      
     </group>
   );
 }
