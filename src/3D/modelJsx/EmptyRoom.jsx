@@ -11,6 +11,7 @@ import MeetingTable from "./MeetingTable.jsx";
 import ScreenLED from "./ScreenLED.jsx";
 import GlassWall from "./GlassWall.jsx";
 import Headphones from "./Headphones.jsx";
+import VR from "./VR.jsx";
 import Macbook from "./Macbook.jsx";
 import Sofa1 from "./Sofa1.jsx";
 import InteractiveMesh from "./InteractiveMesh.jsx";
@@ -273,6 +274,7 @@ export default function EmptyRoom({
           rotation={[0, Math.PI, 0]}
           scale={2}
         />
+        <VR position={[-0.9, 0.15, 0.5]} rotation={[0,3*Math.PI / 2, 0]} scale={1.7} />
         <Macbook
           position={[-1.5, 0.15, -0.5]}
           rotation={[0, (3 * Math.PI) / 2, 0]}
